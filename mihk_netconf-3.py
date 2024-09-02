@@ -11,8 +11,8 @@ MPG, 9.1.24
 
 
 """
-router = {"host": "192.168.6.139", "port": "830",
-          "username": "mihker", "password": "cisco$5446"}
+router = {"host": "192.168.X.X", "port": "830",
+          "username": "XXXXX", "password": "XXXXX"}
 
 netconf_filter = """
  <filter xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">

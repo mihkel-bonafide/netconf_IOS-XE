@@ -4,15 +4,17 @@ import xml.dom.minidom
 import xmltodict
 
 """
-This code retrieves equivalent info to "R1# show interfaces GigabitEthernet2".
-This is a proof-of-concept: "mihk_netconf-4.py" is going to take this a step 
-further and ask the user which interface they wish to query, then apply an 
-appropriate filter for the get request. 
-MPG, 9.1.24
+This code retrieves equivalent info to "R1# show interfaces GigabitEthernet2" for
+a user-selected interface on the target-device "router". 
+This specific version includes various code used for testing - the file "mihk_netconf-4p.py" 
+contains the 'production' version of this same file. 
+The next iteration of this code will perform the same operation but will query the target 
+device for interface names (rather than hard-coding it).
+MPG, 9.2.24
 
 """
-router = {"host": "192.168.6.139", "port": "830",
-          "username": "mihker", "password": "cisco$5446"}
+router = {"host": "192.168.X.X", "port": "830",
+          "username": "XXXXX", "password": "XXXXX"}
 
 
 with manager.connect(host=router["host"], port=router["port"], username=router["username"], password=router["password"], hostkey_verify=False) as m:
