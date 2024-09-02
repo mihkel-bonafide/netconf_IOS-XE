@@ -13,10 +13,10 @@ Also: https://developer.cisco.com/learning/modules/intro-device-level-interfaces
 
 """
 
-HOST = "192.168.6.139"
+HOST = "192.168.X.X"
 PORT = "830"
-USER = "mihker"
-PW = "cisco$5446"
+USER = "XXX"
+PW = "XXX"
 LOOPBACK_ID = "01"
 LOOPBACK_IP = "6.6.6.6/32"
 

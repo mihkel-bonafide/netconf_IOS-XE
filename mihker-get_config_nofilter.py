@@ -3,14 +3,8 @@ import xmltodict
 import xml.dom.minidom
 
 """
-First successful get_config operation with ncclient! 
-Worth exploring whether the solution to this whole fiasco is as simple/dumb as my dictionary
-values not translating into these modules correctly whereas the global vars work just fuckin' fine.
-Nonetheless, the netconf filter here works and THIS WORKING COPY SHOULD REMAIN UNTOUCHED! -MPG, 8.29.24
-
-Explore further at: https://github.com/CiscoDevNet/dne-dna-code/blob/master/intro-mdp/netconf/get_interface_list.py
-Also: https://developer.cisco.com/learning/modules/intro-device-level-interfaces/intro-netconf/walking-through-automating-your-network-with-netconf/
-
+Basic template for pulling raw XML data from a module; here ietf-interfaces
+-MPG, 8.30.24
 """
 
 HOST = "192.168.X.X"
@@ -38,7 +32,7 @@ def get_interfaces():
     ) as miiihker:
         print("Sending a <get-config> operation to the device.\n")
         # Make a NETCONF <get-config> query using the filter
-        netconf_reply = miiihker.get_config(source = 'running', filter = netconf_filter)
+        netconf_reply = miiihker.get_config(source = 'running', filter=None)
         print(f"Here is the raw data:")
         print()
         print(netconf_reply)
@@ -51,14 +45,6 @@ def get_interfaces():
         opus = xmltodict.parse(netconf_reply.xml)["rpc-reply"]["data"]
         print(opus)
         print()
-        print(f"parsing further...")
-        print()
-        interfaces = opus["interfaces"]["interface"]
-        for interface in interfaces:
-            print("Interface {} enabled status is {}".format(
-                interface["name"],
-                interface["enabled"]
-            ))
 
 
 if __name__ == '__main__': 
